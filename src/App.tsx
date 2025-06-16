@@ -1,7 +1,18 @@
-import React from "react";
+import React from 'react'
+import Header from './components/Header/Header'
+import MovieCard from 'components/MovieCard/MovieCard'
+import MovieCardList from 'components/MovieCardList/MovieCardList'
 
-import { Button } from "neetoui";
+const App = () => {
+  console.log(process.env.REACT_APP_OMDB_API_KEY)
+  return (
+    <div className='box-border bg-gray-100'>
+      <Header />
+      <div className='flex'>
+        <MovieCardList />
+      </div>
+    </div>
+  )
+}
 
-const App = () => <Button label="Click me" style="secondary" />;
-
-export default App;
+export default App

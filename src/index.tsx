@@ -6,10 +6,15 @@ import App from "./App.tsx";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals.ts";
 
+import queryClient from "./utils/queryClient.ts";
+import { QueryClientProvider } from "react-query";
+
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
