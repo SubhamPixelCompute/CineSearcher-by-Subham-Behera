@@ -6,14 +6,14 @@ import { Spinner, Toastr, Typography } from 'neetoui';
 import React, { useEffect, useState } from 'react'
 import { useQueryClient } from 'react-query';
 import useSearchKey from 'src/store/useSearchKey'
-
+import { shallow } from "zustand/shallow";
 const MovieCardList = () => {
 
 
   let { searchKey, setSearchKey } = useSearchKey((state) => ({
     searchKey: state.searchKey,
     setSearchKey: state.setSearchKey
-  }))
+  }),shallow)
   const debounceKey = useDebounceValue(searchKey)
 
   type obj = {

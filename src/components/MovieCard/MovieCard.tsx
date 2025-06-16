@@ -1,5 +1,8 @@
-import { Typography } from 'neetoui'
+import { AddCircle, CheckCircle, IndeterminateCircle, UserCircle } from 'neetoicons'
+import { Button, Typography } from 'neetoui'
 import React, { FC } from 'react'
+import useSaveHistory from 'src/store/useSaveHistory'
+import { shallow } from 'zustand/shallow'
 
 
 const MovieCard: React.FC<MoviereponseTitle> = ({
@@ -9,6 +12,12 @@ const MovieCard: React.FC<MoviereponseTitle> = ({
   Type,
   Poster
 }) => {
+
+  const {linkHistory,setSaveHistory} = useSaveHistory((state) => ({
+    ...state
+  }),shallow)
+
+
   return (
     <div
       className=" bg-white neeto-ui-rounded-xl flex w-full flex-col items-center justify-self-center border p-4  h-full"
@@ -18,8 +27,15 @@ const MovieCard: React.FC<MoviereponseTitle> = ({
         <Typography className="text-center" weight="semibold">
           {Title}
         </Typography>
-        <Typography>Movie {Year}</Typography>
+        <Typography>{Type} &#9679; {Year}</Typography>
       </div>
+      <Button onClick={(e) => {
+        console.log(imdbID,Title,e.target)
+        setSaveHistory({
+          Title,
+          imdbID
+        })
+      }} className='m-1'>View Details</Button>
     </div>
   )
 }
