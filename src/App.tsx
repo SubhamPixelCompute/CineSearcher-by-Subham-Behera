@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './components/Header/Header'
 import MovieCard from 'components/MovieCard/MovieCard'
 import MovieCardList from 'components/MovieCardList/MovieCardList'
+import HistoryTab from 'components/HistoryTab/HistoryTab'
 
 const App = () => {
   console.log(process.env.REACT_APP_OMDB_API_KEY)
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <div className='flex'>
         <MovieCardList />
+        <HistoryTab/>
       </div>
     </div>
   )

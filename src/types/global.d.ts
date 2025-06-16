@@ -3,7 +3,7 @@ export { };
 declare global {
   type paramsType =
     | { i: string; s?: null | undefined; apikey: string | undefined }
-    | { i?: null | undefined; s: string; apikey: string | undefined };
+    | { i?: null | undefined; s: string; apikey: string | undefined; page?:number };
 
 
   type MoviereponseTitle = {
@@ -27,6 +27,10 @@ declare global {
     imdbRating: string,
     [key: string]: string;
   }
-  type MovieResponse<P extends paramsType> =  P['s'] extends string  ? { Search: MoviereponseTitle[] } : MovieresponseId;
+  type MovieResponse<P extends paramsType> = P['s'] extends string ? { Search: MoviereponseTitle[], totalResults:Number,Response:"True"|"False" } : MovieresponseId;
+
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
 }
 
