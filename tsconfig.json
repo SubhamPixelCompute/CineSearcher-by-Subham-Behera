@@ -40,5 +40,5 @@
     "noEmit": true
   },
   "exclude": ["**/node_modules", "**/.*/"],
-  "include": ["./**/*.js", "./**/*.jsx", "./**/*.d.ts", "src/App.tsx", "src/index.tsx", "src/App.test.tsx", "src/setupTests.ts", "src/reportWebVitals.ts"]
+  "include": ["./**/*.js", "./**/*.jsx", "./**/*.d.ts", "src/App.tsx", "src/index.tsx", "src/App.test.tsx", "src/setupTests.ts", "src/reportWebVitals.ts","src","types"]
 }
