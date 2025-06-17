@@ -58,7 +58,7 @@ const MovieCardList = () => {
   }
 
   return (
-    <div className='grid  grid-cols-4 w-full p-5  gap-3 justify-center   border-2 mt-5 min-h-screen'>
+    <div className='grid  grid-cols-4 w-3/4 p-5  gap-3 justify-center   border-2 mt-5  '>
       {data?.Search.map((val) => {
         return (
           <MovieCard {...val} key={crypto.randomUUID()} />
