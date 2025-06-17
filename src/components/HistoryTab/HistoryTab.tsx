@@ -13,11 +13,8 @@ const HistoryTab = () => {
 
   const scrollToSection = (id: string) => {
     const element = itemsRefs.current.get(id);
-    console.log(itemsRefs)
+
     if (element) {
-      // Use scrollIntoView for smooth scrolling to the element
-      // 'smooth' behavior makes the scroll animated.
-      // 'start' aligns the top of the element with the top of the viewport.
       element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   };
@@ -28,8 +25,8 @@ const HistoryTab = () => {
 
   return (
     <>
-      <div className='text-center text-2xl font-bold w-1/4 mt-5'>View History</div>
-      <div className='w-1/4 top-16  overflow-scroll  flex flex-col absolute right-0 pt-5 h-2/5 overflow-x-hidden gap-2' >
+      <div className='text-center text-2xl font-bold w-1/3 mt-5'>View History</div>
+      <div className='w-1/3 top-16  overflow-scroll  flex flex-col absolute right-0 pt-5 h-2/5 overflow-x-hidden gap-2 no-scrollbar ' >
 
         {linkHistory.map(({ Title, imdbID }) => {
           return <Button className={`w-full text-white   ${imdbID === HimdbID ? `bg-blue-600` : `bg-blue-200`}  `}

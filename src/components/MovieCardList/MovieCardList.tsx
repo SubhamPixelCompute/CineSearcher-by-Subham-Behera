@@ -22,14 +22,11 @@ const MovieCardList = () => {
     page:number
   }
 
-  const queryClient = useQueryClient();
   let { data, isLoading, isError, isFetching } = fetchMovie<obj>({
     s: debounceKey.trim(),
     apikey: process.env.REACT_APP_OMDB_API_KEY,
     page:1
   })
-
-  console.log(data)
 
 
   if (isLoading || isFetching) {
@@ -44,7 +41,7 @@ const MovieCardList = () => {
   }
 
   if (searchKey.trim() === "") {
-    return <div className='flex justify-center items-center min-h-screen min-w-full'>
+    return <div className='flex justify-center items-center min-h-screen w-2/3'>
       <Spinner />
       <div className='text-4xl'> Enter Something</div>
     </div>
@@ -58,7 +55,7 @@ const MovieCardList = () => {
   }
 
   return (
-    <div className='grid  grid-cols-4 w-3/4 p-5  gap-3 justify-center   border-2 mt-5  '>
+    <div className='grid  grid-cols-4 w-2/3 p-5  gap-3 justify-center   border-2 mt-5  '>
       {data?.Search.map((val) => {
         return (
           <MovieCard {...val} key={crypto.randomUUID()} />
