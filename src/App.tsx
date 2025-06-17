@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './components/Header/Header'
-import MovieCard from 'components/MovieCard/MovieCard'
 import MovieCardList from 'components/MovieCardList/MovieCardList'
 import HistoryTab from 'components/HistoryTab/HistoryTab'
 

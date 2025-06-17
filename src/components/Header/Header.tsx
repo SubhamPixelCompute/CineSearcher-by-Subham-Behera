@@ -1,7 +1,6 @@
 import { Input } from '@bigbinary/neetoui'
 import { Search } from "@bigbinary/neeto-icons";
-import React, { useEffect } from 'react'
-import { fetchMovie } from '../../hooks/reactQuery/useFetchMovie'
+import React from 'react'
 import useSearchKey from "../../store/useSearchKey";
 
 const Header = () => {

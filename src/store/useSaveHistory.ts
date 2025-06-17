@@ -1,4 +1,4 @@
-import { useRef } from "react";
+
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -27,7 +27,7 @@ const useSaveHistory = create<SaveHistory>()(
               found = true
             }
           })
-          
+
           let newLinkHistory = state.linkHistory;
           if (!found) {
             newLinkHistory = [...state.linkHistory, linkHistoryEle];

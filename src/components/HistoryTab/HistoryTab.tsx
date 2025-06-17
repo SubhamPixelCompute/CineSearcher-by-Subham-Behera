@@ -1,4 +1,4 @@
-import { Button, Typography } from 'neetoui'
+import { Button } from 'neetoui'
 import React, { useEffect, useRef } from 'react'
 import useSaveHistory from 'src/store/useSaveHistory'
 

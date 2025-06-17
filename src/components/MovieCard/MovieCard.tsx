@@ -1,6 +1,6 @@
-import { AddCircle, CheckCircle, IndeterminateCircle, Rating, UserCircle } from 'neetoicons'
+
 import { Button, Spinner, Typography } from 'neetoui'
-import React, { FC, useState } from 'react'
+import React, {  useState } from 'react'
 import useSaveHistory from 'src/store/useSaveHistory'
 import { shallow } from 'zustand/shallow'
 import { Modal } from "@bigbinary/neetoui";
@@ -49,9 +49,28 @@ const MovieCard: React.FC<MoviereponseTitle> = ({
     }
   }
   const fetchData = (_imdbID: string) => {
+
     setData({
       i: _imdbID,
       apikey: process.env.REACT_APP_OMDB_API_KEY,
+    })
+  }
+  const handleOpen = () => {
+
+    let found = false
+
+    linkHistory.forEach((val) => {
+      if(val.Title === Title && val.imdbID === imdbID){
+        found = true
+      }
+    })
+    if (!found) {
+      fetchData(imdbID)
+      setIsModalOpen(true)
+    }
+    setSaveHistory({
+      Title,
+      imdbID
     })
   }
 
@@ -70,16 +89,10 @@ const MovieCard: React.FC<MoviereponseTitle> = ({
         type='button'
 
         onClick={(e) => {
-          console.log(imdbID, Title, e.target)
-          fetchData(imdbID)
-          setIsModalOpen(true)
-          setSaveHistory({
-            Title,
-            imdbID
-          })
+          handleOpen()
         }} className='m-1 bg-white text-blue-600 focus:text-blue-600'>View Details</Button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} className='p-5'>
-        {isFetching && <Spinner/>}
+      <Modal isOpen={isModalOpen} onClose={closeModal} className='p-5' key={imdbID}>
+        {isFetching && <Spinner />}
         {!isFetching &&
           <>
             <h1 className='text-xl font-bold'>{Title}</h1>
@@ -99,7 +112,6 @@ const MovieCard: React.FC<MoviereponseTitle> = ({
                 <div><span className='font-bold'>Language</span> {Language}</div>
                 <div><span className='font-bold'>Rating</span> {imdbRating}</div>
               </div>
-
             </div>
           </>
         }

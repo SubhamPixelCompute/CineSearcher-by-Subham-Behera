@@ -2,9 +2,8 @@ import MovieCard from 'components/MovieCard/MovieCard';
 import { fetchMovie } from 'hooks/reactQuery/useFetchMovie';
 import { useDebounceValue } from 'hooks/useDebounce.tsx';
 import { Error } from 'neetoicons';
-import { Spinner, Toastr, Typography } from 'neetoui';
-import React, { useEffect, useState } from 'react'
-import { useQueryClient } from 'react-query';
+import { Spinner  } from 'neetoui';
+import React from 'react'
 import useSearchKey from 'src/store/useSearchKey'
 import { shallow } from "zustand/shallow";
 const MovieCardList = () => {
