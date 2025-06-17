@@ -25,6 +25,8 @@ declare global {
     Plot: string,
     Language: string,
     imdbRating: string,
+    Genre:string,
+    RunTime:string
     [key: string]: string;
   }
   type MovieResponse<P extends paramsType> = P['s'] extends string ? { Search: MoviereponseTitle[], totalResults:Number,Response:"True"|"False" } : MovieresponseId;

@@ -7,9 +7,9 @@ import HistoryTab from 'components/HistoryTab/HistoryTab'
 const App = () => {
   console.log(process.env.REACT_APP_OMDB_API_KEY)
   return (
-    <div className='box-border bg-gray-100'>
+    <div className='box-border bg-gray-100 overflow-hidden '>
       <Header />
-      <div className='flex'>
+      <div className='flex relative'>
         <MovieCardList />
         <HistoryTab/>
       </div>

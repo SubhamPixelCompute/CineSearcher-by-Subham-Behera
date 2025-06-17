@@ -6,7 +6,6 @@ interface SearchKey {
   setSearchKey: (searchKey: string) => void
 }
 
-
 const useSearchKey = create<SearchKey>()(
   devtools(
     persist(
